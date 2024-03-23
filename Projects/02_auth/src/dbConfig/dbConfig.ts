@@ -3,11 +3,11 @@ import mongoose from "mongoose"
 export async function connect(){
     try {
         
-        mongoose.connect(process.env.MONGO_URL!)
+        mongoose.connect(`${process.env.MONGO_URL!}/authNext`)
         const connection=mongoose.connection
         connection.on('connected',()=>{
             console.log("MongoDb Connected")
-            process.exit(1)
+           
         })
 
         connection.on("error",(err)=>{
